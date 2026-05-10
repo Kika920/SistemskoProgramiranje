@@ -29,7 +29,7 @@ public class QueueRequest
 
             red.Enqueue(ctx);
               Log.Info($"Dodaj u red zahteva: {ctx.Request.Url}");
-            Monitor.Pulse(locker); //pulseall?
+            Monitor.Pulse(locker); 
         }
     }
 
@@ -47,7 +47,7 @@ public class QueueRequest
 
               var ctx = red.Dequeue();
 
-            Log.Info($"Zahtev poslat na obradu i uklonjen iz reda zahteva: {ctx.Request.Url}");
+            Log.Info($"Poslat na obradu i uklonjen iz reda: {ctx.Request.Url}");
 
             return ctx;
         }

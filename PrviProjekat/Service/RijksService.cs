@@ -87,9 +87,7 @@ public class RijksServis
                     PropertyNameCaseInsensitive = true //Kaže JSON parseru da ignoriše razliku između malih i velikih slova u nazivima polja.
                 });
         }
-        //client.GetStringAsync(url).Result može da traje i po nekoliko sekundi. 
-        // Da nema WorkerThreadPool koji koristi niti iz bazena, glavna nit bi bila blokirana i server ne bi mogao da primi nove zahteve dok ovaj API poziv ne završi.
-        //  Ovako, samo jedna nit iz pool-a "stoji i čeka", dok ostale mogu slobodno da rade.
+     
         catch (Exception ex)
         {
             Log.Error($"API GRESKA: {ex.Message}");

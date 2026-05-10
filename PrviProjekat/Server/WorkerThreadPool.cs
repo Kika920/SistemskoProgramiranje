@@ -33,12 +33,9 @@ public class WorkerThreadPool
             var ctx = red.Get();
 
             if (ctx == null)
-              { 
-                break; // shutdown signal
-              }
+                break;
 
-             server.Obradi(ctx);
-           
+            server.Obradi(ctx);
         }
     }
 }

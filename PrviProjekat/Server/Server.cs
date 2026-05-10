@@ -82,7 +82,7 @@ public class Server
 
 if (string.IsNullOrWhiteSpace(ctx.Request.Url.Query))
 {
-    Vrati(ctx, 400, "Prazan upit");
+    Vrati(ctx, 400, "{\"error\":\"Prazan upit\"}");
     return;
 }
         try
@@ -111,7 +111,7 @@ if (string.IsNullOrWhiteSpace(ctx.Request.Url.Query))
 
             if (result == null || result.Count == 0)
             {
-                Vrati(ctx, 404, "Nema rezultata");
+                Vrati(ctx, 404, "{\"error\":\"Nema rezultata\"}");
                 return;
             }
 
@@ -120,7 +120,7 @@ if (string.IsNullOrWhiteSpace(ctx.Request.Url.Query))
         catch (Exception ex)
         {
             Log.Error(ex.Message);
-            Vrati(ctx, 500, "Greska");
+            Vrati(ctx, 500, "{\"error\":\"Greska\"}");
         }
     }
 
